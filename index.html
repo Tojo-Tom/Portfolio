@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <!-- Document Metadata & Viewport Configurations -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
@@ -10,23 +11,27 @@
   <meta name="author" content="Alex Morgan" />
   <title>Tojo Tom — Software Developer Portfolio</title>
 
-  <!-- Favicon (inline SVG data URL) -->
+  <!-- Favicon (Inline Data URI SVG icon - lightning bolt) -->
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
 
-  <!-- Stylesheet -->
+  <!-- Master Stylesheet Import -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
   <!-- ============================================
-       NAVIGATION
+       NAVIGATION HEADER (#navbar)
+       - Fixed position header with frosted glass backdrop blur
+       - Contains brand logo, nav links, and mobile hamburger toggle
        ============================================ -->
   <nav class="navbar" id="navbar">
     <div class="container">
+      <!-- Brand Logo (gradient text link to hero top) -->
       <a href="#hero" class="nav-logo">&lt;AM /&gt;</a>
 
+      <!-- Desktop Navigation Anchor Links -->
       <div class="nav-links" id="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -35,6 +40,7 @@
         <a href="#contact" class="nav-cta">Let's Talk</a>
       </div>
 
+      <!-- Mobile Hamburger Button (Transforms to 'X' on click) -->
       <div class="nav-hamburger" id="nav-hamburger">
         <span></span>
         <span></span>
@@ -45,15 +51,20 @@
 
 
   <!-- ============================================
-       HERO SECTION
+       HERO SECTION (#hero)
+       - Fullscreen landing section with interactive particle background
+       - Dynamic typewriter subtitle and call-to-action buttons
        ============================================ -->
   <section class="hero" id="hero">
+    <!-- HTML5 2D Canvas element where main.js renders 80 interactive particles -->
     <canvas id="particle-canvas"></canvas>
 
+    <!-- Floating Background Orbs (CSS radial gradients with infinite floating animations) -->
     <div class="hero-orb hero-orb--1"></div>
     <div class="hero-orb hero-orb--2"></div>
     <div class="hero-orb hero-orb--3"></div>
 
+    <!-- Centered Hero Text Content -->
     <div class="hero-content">
       <p class="hero-greeting">
         <span class="wave">👋</span> Hey there, I'm
@@ -61,9 +72,11 @@
       <h1 class="hero-title">
         <span class="name-highlight">Tojo Tom</span>
       </h1>
+      <!-- Typewriter subtitle targeted by initTypingEffect() in main.js -->
       <p class="hero-subtitle">
         <span id="typed-text"></span><span class="typed-cursor"></span>
       </p>
+      <!-- Call-To-Action (CTA) Action Buttons -->
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -82,16 +95,13 @@
         </a>
       </div>
     </div>
-
-    <!--<div class="scroll-indicator">
-      <div class="mouse"></div>
-      <span>Scroll</span>
-    </div>-->
   </section>
 
 
   <!-- ============================================
-       ABOUT SECTION
+       ABOUT SECTION (#about)
+       - Two-column grid containing avatar profile card and bio text
+       - Stat counters animated via IntersectionObserver in main.js
        ============================================ -->
   <section class="section" id="about">
     <div class="container">
@@ -101,9 +111,9 @@
       </div>
 
       <div class="about-grid">
+        <!-- Left Column: Avatar Profile Frame with Ambient Glow -->
         <div class="about-image-wrapper reveal-left">
           <div class="about-image-frame">
-            <!-- Profile placeholder with gradient -->
             <div
               style="width:100%;height:100%;background:linear-gradient(135deg, #6C63FF 0%, #00D4AA 50%, #FF6B9D 100%);display:flex;align-items:center;justify-content:center;">
               <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)"
@@ -115,6 +125,7 @@
           </div>
         </div>
 
+        <!-- Right Column: Bio Paragraphs & Animated Metric Counters -->
         <div class="about-text reveal-right">
           <h3>Building the Web, One Line at a Time</h3>
           <p>
@@ -127,6 +138,7 @@
             writing technical articles to share my knowledge with the community.
           </p>
 
+          <!-- Animated Metric Counters (data-count read by animateCounter() in main.js) -->
           <div class="about-stats stagger-children">
             <div class="stat-item">
               <div class="stat-number" data-count="5" data-suffix="+">0</div>
@@ -148,7 +160,9 @@
 
 
   <!-- ============================================
-       SKILLS SECTION
+       SKILLS SECTION (#skills)
+       - Categorized skill card grid (Frontend, Backend, Database, DevOps, Tools, Soft Skills)
+       - Skill level bars expanded dynamically via initSkillBars() in main.js
        ============================================ -->
   <section class="section" id="skills" style="background: var(--bg-secondary);">
     <div class="container">
@@ -159,7 +173,7 @@
       </div>
 
       <div class="skills-bento stagger-children">
-        <!-- Frontend -->
+        <!-- Skill Domain Card 1: Frontend -->
         <div class="skill-card glass-card">
           <span class="skill-card-icon">🎨</span>
           <h3>Frontend</h3>
@@ -194,7 +208,7 @@
           </div>
         </div>
 
-        <!-- Backend -->
+        <!-- Skill Domain Card 2: Backend -->
         <div class="skill-card glass-card">
           <span class="skill-card-icon">⚙️</span>
           <h3>Backend</h3>
@@ -229,7 +243,7 @@
           </div>
         </div>
 
-        <!-- Database -->
+        <!-- Skill Domain Card 3: Database -->
         <div class="skill-card glass-card">
           <span class="skill-card-icon">🗄️</span>
           <h3>Database</h3>
@@ -264,7 +278,7 @@
           </div>
         </div>
 
-        <!-- DevOps -->
+        <!-- Skill Domain Card 4: DevOps & Cloud -->
         <div class="skill-card glass-card">
           <span class="skill-card-icon">☁️</span>
           <h3>DevOps & Cloud</h3>
@@ -299,7 +313,7 @@
           </div>
         </div>
 
-        <!-- Tools -->
+        <!-- Skill Domain Card 5: Developer Tools -->
         <div class="skill-card glass-card">
           <span class="skill-card-icon">🛠️</span>
           <h3>Tools</h3>
@@ -334,7 +348,7 @@
           </div>
         </div>
 
-        <!-- Soft Skills -->
+        <!-- Skill Domain Card 6: Soft Skills -->
         <div class="skill-card glass-card">
           <span class="skill-card-icon">🧠</span>
           <h3>Soft Skills</h3>
@@ -374,7 +388,9 @@
 
 
   <!-- ============================================
-       PROJECTS SECTION
+       PROJECTS SECTION (#projects)
+       - Card grid displaying portfolio projects with glassmorphism styling
+       - Tech tags, description, live demo link, and GitHub repository link
        ============================================ -->
   <section class="section" id="projects">
     <div class="container">
@@ -385,7 +401,7 @@
       </div>
 
       <div class="projects-grid stagger-children">
-        <!-- Project 1: Analytics Dashboard -->
+        <!-- Project Card 1: Pulse Analytics -->
         <div class="project-card glass-card">
           <div class="project-image">
             <div
@@ -444,6 +460,7 @@
                 </div>
               </div>
             </div>
+            <!-- Hover Action Overlay -->
             <div class="project-image-overlay">
               <a href="#" class="project-overlay-link">Live Demo</a>
               <a href="#" class="project-overlay-link">GitHub</a>
@@ -464,7 +481,7 @@
           </div>
         </div>
 
-        <!-- Project 2: E-Commerce Platform -->
+        <!-- Project Card 2: NovaMart E-Commerce -->
         <div class="project-card glass-card">
           <div class="project-image">
             <div
@@ -506,6 +523,7 @@
                 </div>
               </div>
             </div>
+            <!-- Hover Action Overlay -->
             <div class="project-image-overlay">
               <a href="#" class="project-overlay-link">Live Demo</a>
               <a href="#" class="project-overlay-link">GitHub</a>
@@ -526,7 +544,7 @@
           </div>
         </div>
 
-        <!-- Project 3: Chat Application -->
+        <!-- Project Card 3: Realtime Chat App -->
         <div class="project-card glass-card">
           <div class="project-image">
             <div
@@ -600,96 +618,23 @@
                 </div>
               </div>
             </div>
+            <!-- Hover Action Overlay -->
             <div class="project-image-overlay">
               <a href="#" class="project-overlay-link">Live Demo</a>
               <a href="#" class="project-overlay-link">GitHub</a>
             </div>
           </div>
           <div class="project-body">
-            <h3 class="project-title">Chatter</h3>
+            <h3 class="project-title">Nexus Chat</h3>
             <p class="project-description">
-              A real-time messaging platform with WebSocket connections, typing indicators, read receipts, file
-              sharing,
-              and end-to-end encryption. Supports group chats and direct messages.
+              A real-time messaging application with end-to-end encryption, file sharing, and video calling. Features
+              typing indicators, read receipts, and presence detection.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Socket.io</span>
-              <span class="project-tag project-tag--teal">React</span>
-              <span class="project-tag project-tag--pink">Express</span>
-              <span class="project-tag project-tag--amber">MongoDB</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: AI Code Assistant -->
-        <div class="project-card glass-card">
-          <div class="project-image">
-            <div
-              style="width:100%;height:100%;background:linear-gradient(135deg, #0d0d1a 0%, #1a0d2e 50%, #0d1a1a 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-              <div
-                style="position:absolute;top:20px;left:20px;right:20px;bottom:20px;border:1px solid rgba(0,212,170,0.15);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;">
-                <div style="display:flex;gap:6px;margin-bottom:4px;">
-                  <div style="width:8px;height:8px;border-radius:50%;background:#FF6B9D;"></div>
-                  <div style="width:8px;height:8px;border-radius:50%;background:#FFA63E;"></div>
-                  <div style="width:8px;height:8px;border-radius:50%;background:#00D4AA;"></div>
-                </div>
-                <div style="flex:1;display:flex;gap:8px;">
-                  <div style="flex:1.5;display:flex;flex-direction:column;gap:4px;font-family:monospace;">
-                    <div style="height:6px;width:30%;background:rgba(108,99,255,0.4);border-radius:3px;"></div>
-                    <div
-                      style="height:6px;width:55%;background:rgba(0,212,170,0.3);border-radius:3px;margin-left:12px;">
-                    </div>
-                    <div
-                      style="height:6px;width:45%;background:rgba(255,166,62,0.3);border-radius:3px;margin-left:24px;">
-                    </div>
-                    <div
-                      style="height:6px;width:65%;background:rgba(255,107,157,0.3);border-radius:3px;margin-left:24px;">
-                    </div>
-                    <div
-                      style="height:6px;width:35%;background:rgba(0,212,170,0.3);border-radius:3px;margin-left:12px;">
-                    </div>
-                    <div style="height:6px;width:25%;background:rgba(108,99,255,0.4);border-radius:3px;"></div>
-                    <div
-                      style="height:6px;width:50%;background:rgba(255,255,255,0.1);border-radius:3px;margin-left:12px;">
-                    </div>
-                    <div
-                      style="height:6px;width:70%;background:rgba(0,212,170,0.2);border-radius:3px;margin-left:12px;">
-                    </div>
-                  </div>
-                  <div
-                    style="width:35%;background:rgba(108,99,255,0.06);border-radius:8px;border:1px solid rgba(108,99,255,0.12);padding:10px;display:flex;flex-direction:column;gap:6px;">
-                    <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px;">
-                      <div
-                        style="width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,#6C63FF,#00D4AA);">
-                      </div>
-                      <div style="height:6px;width:40px;background:rgba(255,255,255,0.2);border-radius:3px;"></div>
-                    </div>
-                    <div style="height:5px;width:90%;background:rgba(0,212,170,0.2);border-radius:3px;"></div>
-                    <div style="height:5px;width:75%;background:rgba(0,212,170,0.15);border-radius:3px;"></div>
-                    <div style="height:5px;width:85%;background:rgba(0,212,170,0.2);border-radius:3px;"></div>
-                    <div
-                      style="margin-top:auto;height:24px;background:linear-gradient(135deg,rgba(108,99,255,0.2),rgba(0,212,170,0.2));border-radius:6px;border:1px solid rgba(108,99,255,0.15);">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project-image-overlay">
-              <a href="#" class="project-overlay-link">Live Demo</a>
-              <a href="#" class="project-overlay-link">GitHub</a>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">CodePilot AI</h3>
-            <p class="project-description">
-              An AI-powered code assistant that provides intelligent autocomplete, code reviews, and refactoring
-              suggestions. Integrates with popular editors via LSP protocol.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag project-tag--teal">OpenAI</span>
-              <span class="project-tag project-tag--pink">FastAPI</span>
-              <span class="project-tag project-tag--amber">TypeScript</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag project-tag--teal">Socket.io</span>
+              <span class="project-tag project-tag--pink">WebRTC</span>
+              <span class="project-tag project-tag--amber">Redis</span>
             </div>
           </div>
         </div>
@@ -699,7 +644,9 @@
 
 
   <!-- ============================================
-       EXPERIENCE SECTION
+       EXPERIENCE SECTION (#experience)
+       - Vertical timeline layout with central connector bar
+       - Alternating reveal-left and reveal-right experience cards
        ============================================ -->
   <section class="section" id="experience" style="background: var(--bg-secondary);">
     <div class="container">
@@ -709,7 +656,7 @@
       </div>
 
       <div class="timeline">
-        <!-- Experience 1 -->
+        <!-- Experience Node 1 -->
         <div class="timeline-item reveal-left">
           <div class="timeline-card glass-card">
             <span class="timeline-date">2023 — Present</span>
@@ -723,7 +670,7 @@
           </div>
         </div>
 
-        <!-- Experience 2 -->
+        <!-- Experience Node 2 -->
         <div class="timeline-item reveal-right">
           <div class="timeline-card glass-card">
             <span class="timeline-date">2021 — 2023</span>
@@ -737,7 +684,7 @@
           </div>
         </div>
 
-        <!-- Experience 3 -->
+        <!-- Experience Node 3 -->
         <div class="timeline-item reveal-left">
           <div class="timeline-card glass-card">
             <span class="timeline-date">2020 — 2021</span>
@@ -751,7 +698,7 @@
           </div>
         </div>
 
-        <!-- Experience 4 -->
+        <!-- Experience Node 4 -->
         <div class="timeline-item reveal-right">
           <div class="timeline-card glass-card">
             <span class="timeline-date">2019 — 2020</span>
@@ -770,7 +717,9 @@
 
 
   <!-- ============================================
-       CONTACT SECTION
+       CONTACT SECTION (#contact)
+       - Contact info channels (Email, Location, Status, Social Links)
+       - Client-side validated form with real-time feedback and success card
        ============================================ -->
   <section class="section" id="contact">
     <div class="container">
@@ -781,6 +730,7 @@
       </div>
 
       <div class="contact-grid">
+        <!-- Left Column: Contact Channels & Social Media SVG Links -->
         <div class="contact-info reveal-left">
           <h3>Get in Touch</h3>
           <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
@@ -810,6 +760,7 @@
             </div>
           </div>
 
+          <!-- Social Links -->
           <div class="contact-socials">
             <a href="https://github.com/Tojo-Tom" class="social-link" aria-label="GitHub">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -823,32 +774,31 @@
                   d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
             </a>
-            <!--<a href="#" class="social-link" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>-->
           </div>
         </div>
 
+        <!-- Right Column: Interactive Form & Hidden Success Card -->
         <div class="contact-form-card glass-card reveal-right">
           <form id="contact-form">
+            <!-- Form Group: Name Input -->
             <div class="form-group">
               <label for="form-name">Your Name</label>
               <input type="text" id="form-name" placeholder="John Doe" autocomplete="name" />
               <p class="error-message">Please enter your name</p>
             </div>
+            <!-- Form Group: Email Input -->
             <div class="form-group">
               <label for="form-email">Your Email</label>
               <input type="email" id="form-email" placeholder="john@example.com" autocomplete="email" />
               <p class="error-message">Please enter a valid email address</p>
             </div>
+            <!-- Form Group: Message Textarea -->
             <div class="form-group">
               <label for="form-message">Your Message</label>
               <textarea id="form-message" placeholder="Tell me about your project..." rows="5"></textarea>
               <p class="error-message">Please enter a message (at least 10 characters)</p>
             </div>
+            <!-- Submit Button -->
             <button type="submit" class="btn-submit">
               Send Message
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -859,6 +809,8 @@
               </svg>
             </button>
           </form>
+
+          <!-- Hidden Success Feedback State (Displayed when submission succeeds) -->
           <div class="form-success" id="form-success">
             <div class="success-icon">🎉</div>
             <h4>Message Sent!</h4>
@@ -871,7 +823,7 @@
 
 
   <!-- ============================================
-       FOOTER
+       FOOTER & BACK-TO-TOP ANCHOR
        ============================================ -->
   <footer class="footer">
     <div class="container">
@@ -882,7 +834,7 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Main JavaScript File Execution -->
   <script src="js/main.js"></script>
 </body>
 
